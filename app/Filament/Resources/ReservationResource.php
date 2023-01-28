@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ReservationResource\Pages;
 use App\Filament\Resources\ReservationResource\RelationManagers;
+use App\Models\Client;
 use App\Models\Reservation;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -27,6 +28,14 @@ class ReservationResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('reservation_id')
                     ->required(),
+                Forms\Components\Toggle::make('accepte')
+                    ->label("Acceptée")
+                    ->inline(false)
+                    ->required(),
+                Forms\Components\Select::make('client_id')
+                    ->label('Client')
+                    ->options(Client::all()->pluck('nom', 'id'))
+                    ->required(),
             ]);
     }
 
@@ -35,7 +44,11 @@ class ReservationResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('type'),
-                Tables\Columns\TextColumn::make('reservation_id'),
+                Tables\Columns\TextColumn::make('accepte')
+                    ->sortable()
+                    ->label("Acceptée")
+                    ->getStateUsing(fn (Reservation $record) => $record->accepte == 0 ? "Non" : "Oui"),
+                Tables\Columns\TextColumn::make('client.nom'),
             ])
             ->filters([
                 //

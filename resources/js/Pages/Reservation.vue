@@ -114,3 +114,12 @@ function submit(e) {
     router.post("/reservation", formDataObj);
 }
 </script>
+
+<script>
+import Layout from './Layout/Layout.vue'
+
+export default {
+  // Using shorthand syntax...
+  layout: Layout,
+}
+</script>

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::prefix("compte")->as("account.")->group(function () {
+Route::prefix("client")->as("account.")->group(function () {
     Route::middleware("account.redirect")->group(function () {
         Route::get('/login', [App\Http\Controllers\AuthController::class, "showLoginForm"])->name("login");
         Route::get('/register', [App\Http\Controllers\AuthController::class, "showRegisterForm"])->name("register");

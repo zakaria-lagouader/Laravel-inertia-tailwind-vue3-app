@@ -16,4 +16,10 @@ class EditReservation extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function afterSave(): void
+    {
+        // Runs after the form fields are saved to the database.
+        $this->record->accepter();
+    }
 }

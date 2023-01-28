@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("type");
             $table->integer("reservation_id");
             $table->foreignId("client_id")->constrained();
+            $table->boolean("accepte")->default(0);
             $table->timestamps();
         });
     }

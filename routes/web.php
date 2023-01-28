@@ -20,31 +20,39 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Home/Index');
-})->name("index");
-
-Route::get('/reservation/success', function () {
-    return Inertia::render('ReservationSuccess');
-})->name("index");
-
-Route::get('/reservation', function () {
-    return Inertia::render('Reservation', [
-        "conferences" => Conferance::with("salle")->get(),
-        "evenments" => Evenement::with("salle")->get(),
-        "manifestations" => Manifestation::with(["salle", "oeuvre"])->get(),
+    return Inertia::render('Home/Index', [
+        "client" => account()
     ]);
-})->name("reservation.index");
+})->name("index");
 
+Route::middleware("account.auth")->group(function () {
+    Route::get('/reservation/success', function () {
+        return Inertia::render('ReservationSuccess');
+    })->name("index");
 
-Route::post('/reservation', function (Request $request) {
-    foreach ($request->reservation_id as $id) {
-        Reservation::create([
-            "type" => $request->type,
-            "reservation_id" => $id,
+    Route::get('/reservation', function () {
+        return Inertia::render('Reservation', [
+            "conferences" => Conferance::with("salle")->get(),
+            "evenments" => Evenement::with("salle")->get(),
+            "manifestations" => Manifestation::with(["salle", "oeuvre"])->get(),
         ]);
-    }
-
-    return redirect('/reservation/success');
-})->name("reservation.store");
+    })->name("reservation.index");
 
 
+    Route::post('/reservation', function (Request $request) {
+        foreach ($request->reservation_id as $id) {
+            Reservation::create([
+                "type" => $request->type,
+                "reservation_id" => $id,
+                "accepte" => 0,
+                "client_id" => account()->id,
+            ]);
+        }
+
+        return redirect('/reservation/success');
+    })->name("reservation.store");
+});
+
+Route::get('/test', function () {
+    return Reservation::find(1)->accepter();
+});
