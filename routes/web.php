@@ -1,8 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\File;
+use App\Models\Conferance;
+use App\Models\Evenement;
+use App\Models\Manifestation;
+use App\Models\Reservation;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use League\CommonMark\Extension\CommonMark\Node\Block\IndentedCode;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +20,31 @@ use League\CommonMark\Extension\CommonMark\Node\Block\IndentedCode;
 */
 
 Route::get('/', function () {
-    return view('index');
-});
+    return Inertia::render('Home/Index');
+})->name("index");
+
+Route::get('/reservation/success', function () {
+    return Inertia::render('ReservationSuccess');
+})->name("index");
+
+Route::get('/reservation', function () {
+    return Inertia::render('Reservation', [
+        "conferences" => Conferance::with("salle")->get(),
+        "evenments" => Evenement::with("salle")->get(),
+        "manifestations" => Manifestation::with(["salle", "oeuvre"])->get(),
+    ]);
+})->name("reservation.index");
 
 
-Route::get('/reservation', [\App\Http\Controllers\HomeController::class, "reservation"])->name("reservation.index");
+Route::post('/reservation', function (Request $request) {
+    foreach ($request->reservation_id as $id) {
+        Reservation::create([
+            "type" => $request->type,
+            "reservation_id" => $id,
+        ]);
+    }
+
+    return redirect('/reservation/success');
+})->name("reservation.store");
+
 
