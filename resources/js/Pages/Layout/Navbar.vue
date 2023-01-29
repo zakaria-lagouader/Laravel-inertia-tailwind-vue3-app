@@ -7,7 +7,7 @@
                     class="flex justify-between items-center max-w-7xl mx-auto px-4 py-6 sm:px-6 md:justify-start md:space-x-10 lg:px-8">
                     <div class="flex justify-start lg:w-0 lg:flex-1">
                         <Link href="/">
-                            <span class="sr-only">Workflow</span>
+                            <span class="sr-only">Musée</span>
                             <img class="h-8 w-auto sm:h-10"
                                 src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="" />
                         </Link>
@@ -15,7 +15,7 @@
                     <div class="-mr-2 -my-2 md:hidden">
                         <PopoverButton
                             class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                            <span class="sr-only">Open menu</span>
+                            <span class="sr-only">Ouvrir Menu</span>
                             <MenuIcon class="h-6 w-6" aria-hidden="true" />
                         </PopoverButton>
                     </div>
@@ -28,16 +28,16 @@
                     </PopoverGroup>
                     <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0" v-if="client === null">
                         <Link href="/client/login" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-                            Sign in </Link>
+                            Se Connecter </Link>
                         <Link href="/client/register"
                             class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                            Sign up </Link>
+                            S'authentifier </Link>
                     </div>
                     <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0" v-else>
                         <p class="font-semibold text-gray-500">Bonjour {{ client.nom }} {{ client.prenom }}</p>
                         <Link href="/client/logout" as="button" method="post"
                             class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                            Logout </Link>
+                            Déconnexion </Link>
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@
                                     <div class="-mr-2">
                                         <PopoverButton
                                             class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                                            <span class="sr-only">Close menu</span>
+                                            <span class="sr-only">Fermer Menu</span>
                                             <XIcon class="h-6 w-6" aria-hidden="true" />
                                         </PopoverButton>
                                     </div>
@@ -74,16 +74,16 @@
                                 <div class="mt-6" v-if="client === null">
                                     <Link href="/client/register"
                                         class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                                        Sign up </Link>
+                                        S'authentifier' </Link>
                                     <p class="mt-6 text-center text-base font-medium text-gray-500">
-                                        Existing customer?
-                                        <Link href="/client/login" class="text-gray-900"> Sign in </Link>
+                                        Vous avez deja un compte ?
+                                        <Link href="/client/login" class="text-gray-900"> Se Connecter </Link>
                                     </p>
                                 </div>
                                 <div class="mt-6" v-else>
                                     <Link href="/client/logout" as="button" method="post"
                                         class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                                        Logout </Link>
+                                        Déconnexion </Link>
                                 </div>
                             </div>
                         </div>
@@ -107,9 +107,10 @@ const client = computed(() => usePage().props.client)
 
 
 const navigation = ref([
+    { name: 'Acceuil', href: '/' },
     { name: 'Reservation', href: '/reservation' },
-    { name: 'Partners', href: '#' },
-    { name: 'Company', href: '#' },
+    { name: 'A-Propos', href: '/a-propos' },
+    { name: 'Contact', href: '/contact' },
 ])
 
 </script>

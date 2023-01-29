@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ContactController;
+use App\Models\Blog;
 use App\Models\Conferance;
 use App\Models\Evenement;
 use App\Models\Manifestation;
@@ -21,9 +23,24 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Home/Index', [
-        "client" => account()
+        "client" => account(),
+        "posts" => Blog::latest(3)->get(),
     ]);
 })->name("index");
+
+Route::get('/a-propos', function () {
+    return Inertia::render('About/Index', [
+        "client" => account()
+    ]);
+})->name("about");
+
+Route::get('/contact', function () {
+    return Inertia::render('Contact/Index', [
+        "client" => account()
+    ]);
+})->name("contact");
+
+Route::post('/contact', [ContactController::class, 'store']);
 
 Route::middleware("account.auth")->group(function () {
     Route::get('/reservation/success', function () {
@@ -51,8 +68,4 @@ Route::middleware("account.auth")->group(function () {
 
         return redirect('/reservation/success');
     })->name("reservation.store");
-});
-
-Route::get('/test', function () {
-    return Reservation::find(1)->accepter();
 });

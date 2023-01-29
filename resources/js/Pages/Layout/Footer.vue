@@ -9,7 +9,7 @@
                     </a>
                 </div>
             </nav>
-            <p class="mt-8 text-center text-base text-gray-400">&copy; 2020 Workflow, Inc. All rights reserved.</p>
+            <p class="mt-8 text-center text-base text-gray-400">&copy; 2023 , All rights reserved.</p>
         </div>
     </footer>
 </template>
@@ -19,12 +19,10 @@ import { ref } from 'vue'
 
 const navigation = ref({
     main: [
-        { name: 'About', href: '#' },
-        { name: 'Blog', href: '#' },
-        { name: 'Jobs', href: '#' },
-        { name: 'Press', href: '#' },
-        { name: 'Accessibility', href: '#' },
-        { name: 'Partners', href: '#' },
+        { name: 'Acceuil', href: '/' },
+        { name: 'Reservation', href: '/reservation' },
+        { name: 'A-Propos', href: '/a-propos' },
+        { name: 'Contact', href: '/contact' },
     ],
 })
 

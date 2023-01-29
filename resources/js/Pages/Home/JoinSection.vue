@@ -8,7 +8,7 @@
                     <div class="max-w-md mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:p-0">
                         <div class="aspect-w-10 aspect-h-6 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1">
                             <img class="object-cover object-center rounded-3xl shadow-2xl"
-                                src="https://images.unsplash.com/photo-1507207611509-ec012433ff52?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80"
+                                src="https://images.pexels.com/photos/2261165/pexels-photo-2261165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                                 alt="" />
                         </div>
                     </div>
@@ -42,11 +42,10 @@
                     </div>
                     <div
                         class="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-4 lg:col-span-6">
-                        <h2 class="text-3xl font-extrabold text-white" id="join-heading">Join our team</h2>
-                        <p class="text-lg text-white">Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate
-                            id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.</p>
+                        <h2 class="text-3xl font-extrabold text-white" id="join-heading">Venez Nous voir</h2>
+                        <p class="text-lg text-white">Venez nous rendre visite pour découvrir un monde rempli d'opportunités et d'aventures. Nous sommes situés en un endroit accueillant et convivial, où vous pourrez rencontrer de nouvelles personnes, découvrir de nouvelles cultures et explorer de nouveaux horizons. Ne manquez pas cette occasion de vous épanouir et de vivre des moments inoubliables. Nous vous attendons avec impatience.</p>
                         <a class="block w-full py-3 px-5 text-center bg-white border border-transparent rounded-md shadow-md text-base font-medium text-indigo-700 hover:bg-gray-50 sm:inline-block sm:w-auto"
-                            href="#">Explore open positions</a>
+                            href="/reservation">Reserver !</a>
                     </div>
                 </div>
             </div>

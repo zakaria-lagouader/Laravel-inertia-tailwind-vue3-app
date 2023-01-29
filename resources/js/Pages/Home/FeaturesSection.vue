@@ -15,8 +15,7 @@
 
             <div class="relative lg:grid lg:grid-cols-3 lg:gap-x-8">
                 <div class="lg:col-span-1">
-                    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">A better way to send
-                        money.</h2>
+                    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">On vous Offre</h2>
                 </div>
                 <dl
                     class="mt-10 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:mt-0 lg:col-span-2">
@@ -38,30 +37,30 @@
 </template>
 
 <script>
-import { GlobeAltIcon, LightningBoltIcon, MailIcon, ScaleIcon } from '@heroicons/vue/outline'
+import { GlobeAltIcon, CameraIcon, MailIcon, UserIcon } from '@heroicons/vue/outline'
 
 const features = [
     {
-        name: 'Competitive rates',
-        description: 'Consequuntur omnis dicta cumque, inventore atque ab dolores aspernatur tempora ab doloremque.',
+        name: 'Experience digital',
+        description: 'Découvrez le monde fascinant des musées grâce à notre expérience digitale immersive.',
         icon: GlobeAltIcon,
     },
     {
-        name: 'No hidden fees',
+        name: 'Accompagement',
         description:
-            'Corporis quisquam nostrum nulla veniam recusandae temporibus aperiam officia incidunt at distinctio ratione.',
-        icon: ScaleIcon,
+            'Venez explorer nos collections avec l accompagnement de nos guides passionnés.',
+        icon: UserIcon,
     },
     {
-        name: 'Instant transfers',
+        name: 'Documentation de votre experience',
         description:
-            'Omnis, illo delectus? Libero, possimus nulla nemo tenetur adipisci repellat dolore eligendi velit doloribus mollitia.',
-        icon: LightningBoltIcon,
+            'Documentez votre visite au musée grâce à notre système de documentation en ligne.',
+        icon: CameraIcon,
     },
     {
-        name: 'Reminder emails',
+        name: 'Support 24/7',
         description:
-            'Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.',
+            'Vivez une expérience sans stress au musée grâce à notre support disponible 24/7.',
         icon: MailIcon,
     },
 ]
